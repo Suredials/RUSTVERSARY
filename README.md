@@ -10,12 +10,12 @@ Feel free to explore, use, and contribute to this toolkit as we delve into the w
 
 ## 📚 TOOLKIT CATALOG
 
-| Script/Technique | Description | Language |
-|------------------|-------------|----------|
-| `TOOL 1` | Just a description. | VisualBasic |
-| `TOOL 2` | Just a description. | PowerShell |
-| `TOOL 3` | Just a description. | C# |
-| ... | ... | ... |
+| Script/Technique | Description | 
+|------------------|-------------|
+| `TOOL 1` | Just a description. | 
+| `TOOL 2` | Just a description. |
+| `TOOL 3` | Just a description. |
+| ... | ... |
 
 ## 🤝 HOW TO CONTRIBUTE
 
