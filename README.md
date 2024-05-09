@@ -10,15 +10,18 @@ Feel free to explore, use, and contribute to this toolkit as we delve into the w
 
 ## 📚 TOOLKIT CATALOG
 ### 🔄 LOADERS
-| Script/Technique | Description |
-| --- | --- |
-| Thread Execution Hijacking	| Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process. |
-|TOOL 2	| Just a description. |
-|TOOL 3 |	Just a description. |
-| ...	 | ...| 
+| Script/Technique                                                                                                                 | Description                                                                                                                                                                                                                                                             |
+|----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Thread Execution Hijacking](https://github.com/Suredials/RUSTVERSARY/blob/main/LOADERS/thread_execution_hijacking/src/main.rs)	 | Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process [^1]. |
+| TOOL 2	                                                                                                                          | Just a description.                                                                                                                                                                                                                                                     |
+| TOOL 3                                                                                                                           | 	Just a description.                                                                                                                                                                                                                                                    |
+| ...	                                                                                                                             | ...                                                                                                                                                                                                                                                                     | 
 ## 🤝 HOW TO CONTRIBUTE
 Contributions are welcome! If you have any fixes, improvements, or tools to add, please feel free to submit a pull request. 💡
+## 🔍 REFERENCES
 
+[^1]: [Process Injection: Thread Execution Hijacking
+  ](https://attack.mitre.org/techniques/T1055/003/)
 ## ⚠️ DISCLAIMER
 These tools and scripts are provided for educational purposes only. Unauthorized testing of networks and systems is illegal. Always obtain permission before attempting any penetration testing.
 
