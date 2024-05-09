@@ -9,9 +9,10 @@ Each tool and script is documented to explain its purpose, usage, and any prereq
 Feel free to explore, use, and contribute to this toolkit as we delve into the world of ethical hacking and cybersecurity. 🌐
 
 ## 📚 TOOLKIT CATALOG
+### 🔄 LOADERS
 | Script/Technique | Description |
 | --- | --- |
-|TOOL 1	| Just a description. |
+| Thread Execution Hijacking	| Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process. |
 |TOOL 2	| Just a description. |
 |TOOL 3 |	Just a description. |
 | ...	 | ...| 
