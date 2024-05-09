@@ -1,12 +1,12 @@
 # 🦀 Welcome to RUSTVERSARY 🦀
 
-Welcome to the RustVersary repository! This is a curated collection of tools and scripts that I've developed for ethical malware development using Rust. 🛡️
+Welcome to the RustVersary repository! This is a curated collection of tools and scripts that I've developed for malware development using Rust. 🛡️
 
 The repository is structured to reflect the diverse set of skills required for the exam, ranging from enumeration scripts, exploitation tools, to post-exploitation scripts and various utility tools that enhance the penetration testing process. 🕵️‍♂️
 
 Each tool and script is documented to explain its purpose, usage, and any prerequisites needed for its operation. This toolkit is intended to serve not only as my personal arsenal for security assessment challenges but also as a resource for fellow security enthusiasts and professionals who are on the same path towards mastering offensive security techniques. 🔍
 
-Feel free to explore, use, and contribute to this toolkit as we delve into the world of ethical hacking and cybersecurity. 🌐
+Feel free to explore, use, and contribute to this toolkit as we delve into the world of cybersecurity. 🌐
 
 ## 📚 TOOLKIT CATALOG
 ### 🔄 LOADERS
