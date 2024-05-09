@@ -1,4 +1,4 @@
-# 🦀 Welcome to RustVersary 🦀
+# 🦀 Welcome to RUSTVERSARY 🦀
 
 Welcome to the RustVersary repository! This is a curated collection of tools and scripts that I've developed for ethical malware development using Rust. 🛡️
 
