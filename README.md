@@ -20,8 +20,7 @@ Feel free to explore, use, and contribute to this toolkit as we delve into the w
 Contributions are welcome! If you have any fixes, improvements, or tools to add, please feel free to submit a pull request. 💡
 ## 🔍 REFERENCES
 
-[^1]: [Process Injection: Thread Execution Hijacking
-  ](https://attack.mitre.org/techniques/T1055/003/)
+[^1]: [Process Injection: Thread Execution Hijacking](https://attack.mitre.org/techniques/T1055/003/)
 ## ⚠️ DISCLAIMER
 These tools and scripts are provided for educational purposes only. Unauthorized testing of networks and systems is illegal. Always obtain permission before attempting any penetration testing.
 
