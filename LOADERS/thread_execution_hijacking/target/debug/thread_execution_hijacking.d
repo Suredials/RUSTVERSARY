@@ -1,0 +1,1 @@
+C:\Users\Suredials\Documents\JURO_QUE_SERÁ_LA_ULTIMA_VEZ\RUSTVERSARY\LOADERS\thread_execution_hijacking\target\debug\thread_execution_hijacking.exe: C:\Users\Suredials\Documents\JURO_QUE_SERÁ_LA_ULTIMA_VEZ\RUSTVERSARY\LOADERS\thread_execution_hijacking\src\main.rs
