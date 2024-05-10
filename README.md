@@ -14,6 +14,12 @@ Feel free to explore, use, and contribute to this toolkit as we delve into the w
 |----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Thread Execution Hijacking](https://github.com/Suredials/RUSTVERSARY/blob/main/PROCESS%20INJECTION/thread_execution_hijacking/src/main.rs) | Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process [^1]. |
 | [Process Hollowing](https://github.com/Suredials/RUSTVERSARY/blob/main/PROCESS%20INJECTION/process_hollowing/src/main.rs)                    | Adversaries may inject malicious code into suspended and hollowed processes in order to evade process-based defenses. Process hollowing is a method of executing arbitrary code in the address space of a separate live process [^2].                                   |
+### 🔒 PERSISTENCE
+| Script/Technique                                                                                     | Description                                                                                                                                                              |
+|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Startup Folder](https://github.com/Suredials/RUSTVERSARY/blob/main/PERSISTENCE/startup_folder/src/main.rs) | Placing scripts or programs in the startup folder to execute upon system boot can be an effective way to achieve persistence [^3].                                         |
+| [Registry Run Keys](https://github.com/Suredials/RUSTVERSARY/blob/main/PERSISTENCE/registry_run_keys/src/main.rs) | Adversaries may use registry run keys to automatically execute malicious components upon system startup, maintaining persistence [^4].                                      |
+| [Scheduled Tasks](https://github.com/Suredials/RUSTVERSARY/blob/main/PERSISTENCE/scheduled_tasks/src/main.rs) | Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code [^5].                                            |
 
 ## 🤝 HOW TO CONTRIBUTE
 Contributions are welcome! If you have any fixes, improvements, or tools to add, please feel free to submit a pull request. 💡
@@ -26,3 +32,10 @@ These tools and scripts are provided for educational purposes only. Unauthorized
 [^1]: [Process Injection: Thread Execution Hijacking](https://attack.mitre.org/techniques/T1055/003/)
 
 [^2]: [Process Injection: Process Hollowing](https://attack.mitre.org/techniques/T1055/012/)
+
+[^3]: [Persistence: Startup Folder]()
+
+[^4]: [Persistence: Registry Run Keys]()
+
+[^5]: [Persistence: Scheduled Task]()
+ 
