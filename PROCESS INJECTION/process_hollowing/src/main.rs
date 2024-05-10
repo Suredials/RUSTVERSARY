@@ -1,15 +1,17 @@
-use std::ffi::c_void;
-use std::mem::{zeroed, size_of};
-use std::ptr::null_mut;
-use windows_sys::Win32::System::Threading::{CreateProcessA, PROCESS_BASIC_INFORMATION};
-use windows_sys::Win32::System::Threading::CREATE_SUSPENDED;
-use windows_sys::Win32::System::Threading::STARTUPINFOA;
-use windows_sys::Win32::System::Threading::PROCESS_INFORMATION;
-use windows_sys::Wdk::System::Threading::NtQueryInformationProcess;
-use windows_sys::Win32::System::Diagnostics::Debug::ReadProcessMemory;
-use windows_sys::Win32::System::Diagnostics::Debug::WriteProcessMemory;
-use windows_sys::Win32::System::Threading::ResumeThread;
-use windows_sys::Win32::Foundation::CloseHandle;
+use std::{
+    ffi::c_void,
+    mem::{zeroed, size_of},
+    ptr::null_mut,
+};
+use windows_sys::{
+    Win32::Foundation::CloseHandle,
+    Win32::System::Diagnostics::Debug::{ReadProcessMemory, WriteProcessMemory},
+    Win32::System::Threading::{
+        CreateProcessA, CREATE_SUSPENDED, NtQueryInformationProcess, PROCESS_BASIC_INFORMATION,
+        PROCESS_INFORMATION, ResumeThread, STARTUPINFOA,
+    },
+    Wdk::System::Threading::NtQueryInformationProcess,
+};
 
 fn main() {
     unsafe {
